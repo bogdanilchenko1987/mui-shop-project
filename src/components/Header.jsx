@@ -1,15 +1,17 @@
 import { ShoppingBasket } from '@mui/icons-material';
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Badge, IconButton, Toolbar, Typography } from '@mui/material';
 
-function Header() {
+function Header({ handleCart, orderLen }) {
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="span" sx={{ flexGrow: 1 }}>
-          MUI Shop
+          MUI Books Shop
         </Typography>
-        <IconButton color="inherit">
-          <ShoppingBasket />
+        <IconButton color="inherit" onClick={handleCart}>
+          <Badge color="secondary" badgeContent={orderLen}>
+            <ShoppingBasket />
+          </Badge>
         </IconButton>
       </Toolbar>
     </AppBar>

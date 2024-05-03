@@ -14,7 +14,7 @@ const GoodsItem = props => {
 
   return (
     <Grid item xs={12} md={4}>
-      <Card>
+      <Card sx={{ height: '100%' }}>
         <CardMedia
           image={poster}
           sx={{ height: 140 }}
@@ -29,6 +29,7 @@ const GoodsItem = props => {
         </CardContent>
         <CardActions>
           <Button
+            variant="text"
             onClick={() =>
               setOrder({
                 id: props.id,
