@@ -1,24 +1,34 @@
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 
 const GoodsItem = props => {
-  const { name, price, setOrder } = props;
+  const { name, price, poster, setOrder } = props;
 
   return (
-    <div className="col-12 col-md-6 px-md-2">
-      <div className="card">
-        <img
-          src={`https://via.placeholder.com/300x150.png?text=${name.slice(
-            0,
-            12
-          )}`}
-          className="card-img-top"
+    <Grid item xs={12} md={4}>
+      <Card>
+        <CardMedia
+          image={poster}
+          sx={{ height: 140 }}
+          title={name}
           alt={name}
         />
-        <div className="card-body">
-          <h5 className="card-title">{name}</h5>
-          <p className="card-text">Price: {price} hrn.</p>
-          <button
-            className="btn btn-primary"
+        <CardContent>
+          <Typography variant="h6" component="h3">
+            {name}
+          </Typography>
+          <Typography variant="body1">Price: {price} hrn.</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
             onClick={() =>
               setOrder({
                 id: props.id,
@@ -27,11 +37,11 @@ const GoodsItem = props => {
               })
             }
           >
-            Buy
-          </button>
-        </div>
-      </div>
-    </div>
+            Add to basket
+          </Button>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 };
 

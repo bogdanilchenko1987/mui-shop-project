@@ -6,6 +6,7 @@ import Search from './Search';
 
 import { goods } from '../data/goods';
 import Header from './Header';
+import { Container } from '@mui/material';
 
 const App = () => {
   const [order, setOrder] = useState([]);
@@ -67,13 +68,11 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="App">
-        <div className="container">
-          <Search value={search} onChange={handleChange} />
-          <GoodsList goods={products} setOrder={addToOrder} />
-          <BasketList order={order} setOrder={removeFromOrder} />
-        </div>
-      </div>
+      <Container sx={{ mt: '1rem' }}>
+        <Search value={search} onChange={handleChange} />
+        <GoodsList goods={products} setOrder={addToOrder} />
+        <BasketList order={order} setOrder={removeFromOrder} />
+      </Container>
     </>
   );
 };
